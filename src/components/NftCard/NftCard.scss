@@ -1,0 +1,43 @@
+.Card {
+    height: 435px;
+    width: 320px;
+    left: 132px;
+    top: 140px;
+    border-radius: 20px;
+    background-color: white;
+    padding-bottom: 15px;
+    overflow: hidden;
+    .NftImage {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .TextContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+        p {
+            margin: 0;
+        }
+        .NftName {
+            font-family: Roboto;
+            font-weight: 700;
+            line-height: 16px;
+            text-align: left;
+            color: black;
+        }
+        .NftPriceContainer {
+            display: flex;
+            align-items: center;
+            p {
+                margin-left: 10px;
+            }
+        }
+    }
+    .NftId {
+        text-align: left;
+        margin: 0 0 15px 15px;
+        font-size: 14px;
+        font-weight: 300;
+    }
+}
