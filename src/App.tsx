@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Card from './components/Card/Card';
 import ResumeCard from './components/ResumeCard/ResumeCard';
 import Resume from './components/Resume/Resume';
+import MainPage from './pages/Main/Main';
 
 function App() {
   return (
@@ -21,10 +22,11 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Header></Header>
-      <Card id={225382127} price={0.01} imageUrl='https://img.seadn.io/files/9e841b77bd66373b9699ecad6e962d61.png?auto=format' name='Azuki'/>
+      <Header/>
+      <MainPage/>
+      {/* <Card id={225382127} price={0.01} imageUrl='https://img.seadn.io/files/9e841b77bd66373b9699ecad6e962d61.png?auto=format' name='Azuki'/>
       <ResumeCard id={225382127} price={0.01} imageUrl='https://img.seadn.io/files/9e841b77bd66373b9699ecad6e962d61.png?auto=format' name='Azuki'/>
-      <Resume></Resume>
+      <Resume></Resume> */}
     </div>
   );
 }

@@ -1,0 +1,9 @@
+.MainPage {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    padding: 4rem 8rem;
+    justify-content: space-between;
+    Card {
+        margin-bottom: 1.875rem;
+    }
+}

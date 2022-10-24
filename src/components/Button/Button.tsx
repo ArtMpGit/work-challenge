@@ -26,6 +26,7 @@ const Button = styled.button<{ theme: string }> `
     color: ${({ theme }) => (theme === 'light' ? 'black' : 'white')};
     text-transform: uppercase;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 `
 
 export default Button;
