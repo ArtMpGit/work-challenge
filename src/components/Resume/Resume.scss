@@ -1,0 +1,53 @@
+.Resume {
+    font-family: Roboto;
+    height: fit-content;
+    width: 332px;
+    border-radius: 20px;
+    background-color: white;
+    padding: 1.75rem;
+    h1 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 24px;
+        text-align: left;
+        margin: 0 0 1rem 0;
+    }
+    .InfoRow {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+        p {
+            margin: 0;
+        }
+        .Id,
+        .ConvertedPrice {
+            font-weight: 300;
+            line-height: 16px;
+        }
+        .PriceIconContainer {
+            display: flex;
+            align-items: center;
+            img {
+                margin-right: 7px;
+            }
+            .Price {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 18px;
+            }
+        }
+        .ConvertedPrice {
+            font-size: 14px;
+            color: #000000CC;
+        }
+    }
+    .TotalRow {
+        margin-top: 1rem;
+        .Total {
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+    }
+}
