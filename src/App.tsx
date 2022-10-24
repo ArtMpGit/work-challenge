@@ -1,32 +1,23 @@
 import './App.scss';
 import Header from './components/Header/Header';
-import Card from './components/Card/Card';
-import ResumeCard from './components/ResumeCard/ResumeCard';
-import Resume from './components/Resume/Resume';
 import MainPage from './pages/Main/Main';
+import WalletPage from './pages/Wallet/WalletPage';
+import {
+  BrowserRouter,
+  Routes, //replaces "Switch" used till v5
+  Route,
+} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"  
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <Header/>
-      <MainPage/>
-      {/* <Card id={225382127} price={0.01} imageUrl='https://img.seadn.io/files/9e841b77bd66373b9699ecad6e962d61.png?auto=format' name='Azuki'/>
-      <ResumeCard id={225382127} price={0.01} imageUrl='https://img.seadn.io/files/9e841b77bd66373b9699ecad6e962d61.png?auto=format' name='Azuki'/>
-      <Resume></Resume> */}
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path='/' element={<MainPage/>}></Route>
+          <Route path='/wallet' element={<WalletPage/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
