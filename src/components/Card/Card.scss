@@ -7,7 +7,7 @@
     background-color: white;
     padding-bottom: 15px;
     overflow: hidden;
-    .NftImage {
+    .Image {
         width: 100%;
         margin-bottom: 15px;
     }
@@ -19,14 +19,14 @@
         p {
             margin: 0;
         }
-        .NftName {
+        .Name {
             font-family: Roboto;
             font-weight: 700;
             line-height: 16px;
             text-align: left;
             color: black;
         }
-        .NftPriceContainer {
+        .PriceContainer {
             display: flex;
             align-items: center;
             p {
@@ -34,7 +34,7 @@
             }
         }
     }
-    .NftId {
+    .CardId {
         text-align: left;
         margin: 0 0 15px 15px;
         font-size: 14px;
