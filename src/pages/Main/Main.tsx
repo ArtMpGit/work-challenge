@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { getAllItems } from '../../services/ItemsService';
-import './Main.scss';
+import { useContext } from 'react';
+import Context from '../../contexts/wallet-context';
 import Card from '../../components/Card/Card';
-import { Item } from '../../interfaces/Item';
+import './Main.scss';
 
 const MainPage = () => {
-    const [items, setItems] = useState<Array<Item>>([]);
-
-    useEffect(() => {
-        getAllItems().then(setItems);
-    }, []);
+    const context = useContext(Context);
 
     return <div className='MainPage'>
-        {items.map(({ price, id, image, collection }) => 
-            <Card key={id} id={id} name={collection?.name} price={price} imageUrl={image.url}/>
+        {context.items.map((item) => 
+            <Card key={item.id} item={item}/>
         )}
     </div>
 }
