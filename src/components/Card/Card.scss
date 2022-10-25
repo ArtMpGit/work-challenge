@@ -1,16 +1,20 @@
 .Card {
     height: 435px;
     width: 320px;
-    left: 132px;
-    top: 140px;
     border-radius: 20px;
     background-color: white;
     padding-bottom: 15px;
     overflow: hidden;
     margin-bottom: 1.875rem;
+    position: relative;
     .Image {
         width: 100%;
         margin-bottom: 15px;
+    }
+    .ActionsContainer {
+        position: absolute;
+        left: 15px;
+        bottom: 15px;
     }
     .TextContainer {
         display: flex;

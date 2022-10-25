@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Item } from '../../interfaces/Item';
 import DeleteIcon from '../../assets/DeleteIcon.svg';
 import PriceIcon from '../../assets/CptIcon.svg';
@@ -6,7 +6,11 @@ import './ResumeCard.scss'
 import { StoreContext } from '../../contexts/StoreContext';
 
 const ResumeCard = ({ item }: { item: Item }) => {
-    const { removeItemFromWallet } = useContext(StoreContext);
+    const { wallet, removeItemFromWallet, calculateTotal } = useContext(StoreContext);
+
+    useEffect(() => {
+        calculateTotal?.();
+    }, [wallet])
 
     return <div className="ResumeCard">
             <img src={item.image.url} alt="product image" />

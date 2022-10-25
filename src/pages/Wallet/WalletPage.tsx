@@ -6,12 +6,16 @@ import { Item } from "../../interfaces/Item";
 import './WalletPage.scss';
 
 const WalletPage = () => {
-    const { wallet, retrievePersistedWallet } = useContext(StoreContext);
+    const { wallet, retrievePersistedWallet, calculateTotal } = useContext(StoreContext);
 
     useEffect(() => {
         const persistedWallet = JSON.parse(localStorage.getItem('wallet') as string) as Array<Item>;
         retrievePersistedWallet?.(persistedWallet);
     }, []);
+    
+    useEffect(() => {
+        calculateTotal?.();
+    }, [wallet]);
 
     return <div className="ResumePage">
         <div className="ResumeCardsContainer">
