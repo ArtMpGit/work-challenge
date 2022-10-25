@@ -17,6 +17,8 @@ export const initialState: ContextProps = {
     total: 0
 }
 
+export const CURRENT_ET_VALUE = 7150.93;
+
 export const StoreContext = React.createContext(initialState);
 
 export const useStoreContext = () => useContext(StoreContext);
@@ -63,11 +65,12 @@ export const StoreContextProvider = (props: any) => {
         
         setWallet(updatedWallet);
     }
-
+    
     const retrievePersistedWallet = (items: Array<Item>) => {
-        console.log('a');
-        
         setWallet([...items]);
+        setTotal(wallet.reduce<number>((acc, item) => {
+            return acc + item.price
+        }, 0));
     }
 
     return <StoreContext.Provider value={{ wallet,items, total, addItemToWallet, removeItemFromWallet, addItems, retrievePersistedWallet }}>

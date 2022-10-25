@@ -1,7 +1,7 @@
 import './Resume.scss';
 import PriceIcon from '../../assets/crypto-icon.svg';
 import { useContext } from 'react';
-import { StoreContext } from '../../contexts/StoreContext';
+import { CURRENT_ET_VALUE, StoreContext } from '../../contexts/StoreContext';
 
 const Resume = () => {
     const { wallet, total } = useContext(StoreContext);
@@ -14,9 +14,9 @@ const Resume = () => {
                     <p className='Id'>#{id}</p>
                     <div className="PriceIconContainer">
                         <img src={PriceIcon} alt="Price icon" />
-                        <p className='Price'>{ price }</p>
+                        <p className='Price'>{ price.toFixed(2) }</p>
                     </div>
-                    <p className='ConvertedPrice'>R$31.671,00</p>
+                    <p className='ConvertedPrice'>R${(price * CURRENT_ET_VALUE).toFixed(2)}</p>
                 </div>
             ))
         }
@@ -25,9 +25,9 @@ const Resume = () => {
             <p className='Total'>Total</p>
             <div className="PriceIconContainer">
                 <img src={PriceIcon} alt="Price icon" />
-                <p className='Price'>{total}</p>
+                <p className='Price'>{total.toFixed(2)}</p>
             </div>
-            <p className='ConvertedPrice'>R$31.671,00</p>
+            <p className='ConvertedPrice'>R${(total * CURRENT_ET_VALUE).toFixed(2)}</p>
         </div>
     </div>
 }
