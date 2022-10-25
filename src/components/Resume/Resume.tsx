@@ -10,7 +10,7 @@ const Resume = () => {
         <h1>Resumo</h1>
         {
             wallet.map(({ id, price }) => (
-                <div className="InfoRow">
+                <div className="InfoRow" key={id}>
                     <p className='Id'>#{id}</p>
                     <div className="PriceIconContainer">
                         <img src={PriceIcon} alt="Price icon" />
