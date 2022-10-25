@@ -11,7 +11,7 @@ const addItemToWallet = (item: Item, state: ContextProps) => {
     if (!wallet.find(({ id }) => item.id === id)) {
         wallet.push(item);
     } 
-
+    console.log(state)
     return { ...state, wallet };
 }
 

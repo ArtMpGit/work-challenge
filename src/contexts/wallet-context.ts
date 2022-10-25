@@ -3,18 +3,12 @@ import { Item } from '../interfaces/Item';
 
 export interface ContextProps {
     items: Array<Item>,
-    wallet: Array<Item>,
-    addItemToWallet: Function,
-    addItems: Function,
-    removeItemFromWallet: Function
+    wallet: Array<Item>
 }
 
 export const initialState: ContextProps = {
     items: [],
-    wallet: [],
-    addItemToWallet: (item: Item) => {},
-    addItems: (items: Array<Item>) => {},
-    removeItemFromWallet: (item: Item) => {}
+    wallet: []
 }
 
 export default React.createContext<ContextProps>(initialState);
