@@ -1,3 +1,38 @@
+## PORTUGUÊS
+A versão do Node utilizada durante a codificação desse projeto foi a versão 16.18.0
+
+Para rodar o projeto, depois de ter o node instalado na máquina, basta seguir para a raíz do projeto e rodar os comandos:
+  - "npm install" (para a instalação das dependências)
+  - "npm start" (para inicializar o projeto na porta http://localhost:3000)
+ 
+ Após ter realizado esse processo, para poder rodar a API mockada e ver os items da loja, é necessária a instalação
+ do json-server na máquina. Esse processo pode ser feito da seguinte forma:
+  - Rodar o comando "npm i json-server -g" no CMD (realiza a instalação do json-server globalmente);
+  - Depois de instalado, rodar o comando "json-server --watch server.json --delay 500 --port 4000" na raíz do projeto (inicializa a API mockada na porta 4000);
+
+Realizados estes passos, o projeto deve rodar sem problemas :)
+
+## -------------------------------------------------------------------------------
+## INGLÊS
+
+The node version that was used during the coding process on this project was the version 16.18.0
+
+To run the project, after installing Node on your computer, you just need to go to the root of the project and run the following commands:
+  - "npm install" (to install all the dependencies of the project)
+  - "npm start" (to run the project on the port http://localhost:3000)
+
+After running those commands, it will be necessary to install the json-server on your computer to be able to run the mocked API that was used for this project.
+To do this, open the CMD and run the following command to install the json-server globally on your machine:
+  - "npm i json-server -g"
+
+After installing the json-server, you must go to the root folder of the project and run the following command there:
+  - "json-server --watch server.json --delay 500 --port 4000"
+
+This last command will start the mocked API on the port 4000 of your computer. Finishin those processes, the project should be running
+and the items should be listed on your screen :)
+
+## -------------------------------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
