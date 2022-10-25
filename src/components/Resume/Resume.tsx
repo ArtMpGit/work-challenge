@@ -1,5 +1,5 @@
 import './Resume.scss';
-import PriceIcon from '../../assets/crypto-icon.svg';
+import PriceIcon from '../../assets/CptIcon.svg';
 import { useContext } from 'react';
 import { CURRENT_ET_VALUE, StoreContext } from '../../contexts/StoreContext';
 

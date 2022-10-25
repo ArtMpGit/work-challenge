@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Item } from '../../interfaces/Item';
 import DeleteIcon from '../../assets/DeleteIcon.svg';
-import PriceIcon from '../../assets/crypto-icon.svg';
+import PriceIcon from '../../assets/CptIcon.svg';
 import './ResumeCard.scss'
 import { StoreContext } from '../../contexts/StoreContext';
 

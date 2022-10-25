@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Item } from '../../interfaces/Item';
-import icon from '../../assets/crypto-icon.svg';
+import icon from '../../assets/CptIcon.svg';
 import Button from '../Button/Button'
 import { StoreContext } from '../../contexts/StoreContext';
 import './Card.scss';

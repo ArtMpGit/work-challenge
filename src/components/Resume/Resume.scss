@@ -23,6 +23,8 @@
         .ConvertedPrice {
             font-weight: 300;
             line-height: 16px;
+            width: 25%;
+            text-align: left;
         }
         .PriceIconContainer {
             display: flex;
@@ -48,6 +50,7 @@
             line-height: 16px;
             letter-spacing: 0em;
             text-align: left;
+            width: 25%;
         }
     }
 }
