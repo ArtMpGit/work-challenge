@@ -1,9 +1,15 @@
+import { useState } from "react";
 import { Item } from "../interfaces/Item";
-import { ContextProps } from "./wallet-context";
+import { ContextProps } from "./StoreContext";
 
 export const ADD_ITEMS = "ADD_ITEMS";
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
+
+const addItems = (state: ContextProps, items: Array<Item>) => {
+    console.log(items)
+    return { ...state, items };
+}
 
 const addItemToWallet = (item: Item, state: ContextProps) => {
     const wallet = state.wallet;
@@ -26,14 +32,14 @@ const removeItemFromWallet = (item: Item, state: ContextProps) => {
     return { ...state, wallet };
 }
 
-export const storeReducer = (state:any, action: { type: string, item?: Item, items?: Array<Item>}) => {
+export const storeReducer = (state: ContextProps, action: { type: string, item?: Item, items?: Array<Item>}) => {
     switch (action.type) {
         case ADD_ITEMS:
-            return { ...state, items: (action.items as Array<Item>) }
+            return addItems(state, (action.items as Array<Item>));
         case ADD_ITEM:
-            return addItemToWallet((action.item as Item), state)
+            return addItemToWallet((action.item as Item), state);
         case REMOVE_ITEM:
-            return removeItemFromWallet((action.item as Item), state)
+            return removeItemFromWallet((action.item as Item), state);
         default:
             return state;
     }

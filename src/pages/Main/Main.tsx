@@ -1,13 +1,18 @@
-import { useContext } from 'react';
-import Context from '../../contexts/wallet-context';
+import { useContext, useEffect } from 'react';
 import Card from '../../components/Card/Card';
+import { StoreContext } from '../../contexts/StoreContext';
+import { getAllItems } from '../../services/ItemsService';
 import './Main.scss';
 
 const MainPage = () => {
-    const context = useContext(Context);
+    const { addItems, items } = useContext(StoreContext);
+
+    useEffect(() => {
+        getAllItems().then(addItems);
+    }, []);
 
     return <div className='MainPage'>
-        {context.items.map((item) => 
+        {items.map((item) => 
             <Card key={item.id} item={item}/>
         )}
     </div>

@@ -4,7 +4,7 @@ import DeleteIcon from '../../assets/DeleteIcon.svg';
 import PriceIcon from '../../assets/crypto-icon.svg';
 import './ResumeCard.scss'
 import { REMOVE_ITEM, storeReducer } from '../../contexts/reducers';
-import { initialState } from '../../contexts/wallet-context';
+import { initialState } from '../../contexts/StoreContext';
 
 const ResumeCard = ({ item }: { item: Item }) => {
     const [ state, dispatch ] = useReducer(storeReducer, initialState);

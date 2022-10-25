@@ -2,17 +2,17 @@ import './App.scss';
 import Header from './components/Header/Header';
 import MainPage from './pages/Main/Main';
 import WalletPage from './pages/Wallet/WalletPage';
-import GlobalState from './contexts/GlobalState';
 import {
   BrowserRouter,
   Routes, //replaces "Switch" used till v5
   Route,
 } from "react-router-dom";
+import { StoreContextProvider } from './contexts/StoreContext';
 
 function App() {
   return (
     <div className="App">
-      <GlobalState>
+      <StoreContextProvider>
         <BrowserRouter>
           <Header/>
           <Routes>
@@ -20,7 +20,7 @@ function App() {
             <Route path='/wallet' element={<WalletPage/>}></Route>
           </Routes>
         </BrowserRouter>
-      </GlobalState>
+      </StoreContextProvider>
     </div>
   );
 }

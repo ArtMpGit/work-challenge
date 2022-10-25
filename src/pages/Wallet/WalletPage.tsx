@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import ResumeCard from "../../components/ResumeCard/ResumeCard";
-import StoreContext from '../../contexts/wallet-context';
+import { StoreContext } from "../../contexts/StoreContext";
 import './WalletPage.scss';
 
 const WalletPage = () => {
-    const context = useContext(StoreContext);
+    const { wallet } = useContext(StoreContext);
 
     return <div className="ResumePage">
         {
-            context.wallet.map(item => (
+            wallet.map(item => (
                 <ResumeCard key={item.id} item={item}/>
             ))
         }
