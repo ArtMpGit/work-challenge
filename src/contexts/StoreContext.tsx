@@ -25,13 +25,6 @@ export const StoreContextProvider = (props: any) => {
     const [ wallet, setWallet ] = useState<Array<Item>>([]);
     const [ total, setTotal ] = useState<number>(0);
 
-    const calculateTotal = (): void => {
-        const total = wallet.reduce<number>((acc, item) => {
-            return acc + item.price
-        }, 0);
-        setTotal(total);
-    }
-
     const addItems = (items: Array<Item>) => {
         setItems(items)
     } 
@@ -41,10 +34,13 @@ export const StoreContextProvider = (props: any) => {
         
         if (!updatedWallet.find(({ id }) => item.id === id)) {
             updatedWallet.push(item);
+
+            setTotal(updatedWallet.reduce<number>((acc, item) => {
+                return acc + item.price
+            }, 0));
         }
 
         setWallet(updatedWallet);
-        calculateTotal();
     }
 
     const removeItemFromWallet = (itemId: number): void => {
@@ -54,10 +50,13 @@ export const StoreContextProvider = (props: any) => {
         if (itemToDelete) {
             const indexToDelete = updatedWallet.findIndex(({ id }) => itemId === id) 
             updatedWallet.splice(indexToDelete, 1);
+
+            setTotal(updatedWallet.reduce<number>((acc, item) => {
+                return acc + item.price
+            }, 0));
         }
         
         setWallet(updatedWallet);
-        calculateTotal();
     }
 
     return <StoreContext.Provider value={{ wallet,items, total, addItemToWallet, removeItemFromWallet, addItems }}>
