@@ -13,7 +13,7 @@ Para rodar o projeto, depois de ter o node instalado na máquina, basta seguir p
 Realizados estes passos, o projeto deve rodar sem problemas :)
 
 ## -------------------------------------------------------------------------------
-## INGLÊS
+## ENGLISH
 
 The node version that was used during the coding process on this project was the version 16.18.0
 
