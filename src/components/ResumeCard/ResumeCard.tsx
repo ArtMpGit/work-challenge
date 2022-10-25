@@ -1,24 +1,23 @@
-import { useReducer } from 'react';
+import { useContext } from 'react';
 import { Item } from '../../interfaces/Item';
 import DeleteIcon from '../../assets/DeleteIcon.svg';
 import PriceIcon from '../../assets/crypto-icon.svg';
 import './ResumeCard.scss'
-import { REMOVE_ITEM, storeReducer } from '../../contexts/reducers';
-import { initialState } from '../../contexts/StoreContext';
+import { StoreContext } from '../../contexts/StoreContext';
 
 const ResumeCard = ({ item }: { item: Item }) => {
-    const [ state, dispatch ] = useReducer(storeReducer, initialState);
-    
+    const { removeItemFromWallet } = useContext(StoreContext);
+
     return <div className="ResumeCard">
             <img src={item.image.url} alt="product image" />
             <div className="InfoContainer">
                 <div className="NameIconContainer">
                     <p className="Name">{item.collection.name}</p>
-                    <img 
-                        src={DeleteIcon} 
-                        alt="delete icon" 
-                        className="DeleteIcon" 
-                        onClick={() => dispatch({ type: REMOVE_ITEM, item })}
+                    <img
+                        src={DeleteIcon}
+                        alt="delete icon"
+                        className="DeleteIcon"
+                        onClick={() => removeItemFromWallet?.(item.id)}
                     />
                 </div>
                 <p className="Id">#{item.id}</p>
