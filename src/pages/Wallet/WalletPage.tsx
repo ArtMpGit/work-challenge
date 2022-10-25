@@ -10,7 +10,9 @@ const WalletPage = () => {
 
     useEffect(() => {
         const persistedWallet = JSON.parse(localStorage.getItem('wallet') as string) as Array<Item>;
-        retrievePersistedWallet?.(persistedWallet);
+        if (persistedWallet) {
+            retrievePersistedWallet?.(persistedWallet);
+        };
     }, []);
     
     useEffect(() => {

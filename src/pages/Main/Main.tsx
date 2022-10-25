@@ -11,11 +11,10 @@ const MainPage = () => {
     useEffect(() => {
         getAllItems().then(addItems);
         const persistedWallet = JSON.parse(localStorage.getItem('wallet') as string) as Array<Item>;
-        retrievePersistedWallet?.(persistedWallet);
+        if (persistedWallet) {
+            retrievePersistedWallet?.(persistedWallet);
+        }
     }, []);
-
-    useEffect(() => {
-    }, [])
 
     return <div className='MainPage'>
         {items.map((item) => 
