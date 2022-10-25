@@ -1,11 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Resume from "../../components/Resume/Resume";
 import ResumeCard from "../../components/ResumeCard/ResumeCard";
 import { StoreContext } from "../../contexts/StoreContext";
+import { Item } from "../../interfaces/Item";
 import './WalletPage.scss';
 
 const WalletPage = () => {
-    const { wallet } = useContext(StoreContext);
+    const { wallet, retrievePersistedWallet } = useContext(StoreContext);
+
+    useEffect(() => {
+        const persistedWallet = JSON.parse(localStorage.getItem('wallet') as string) as Array<Item>;
+        retrievePersistedWallet?.(persistedWallet);
+    }, []);
 
     return <div className="ResumePage">
         <div className="ResumeCardsContainer">

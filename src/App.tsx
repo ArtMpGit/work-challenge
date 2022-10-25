@@ -2,13 +2,8 @@ import './App.scss';
 import Header from './components/Header/Header';
 import MainPage from './pages/Main/Main';
 import WalletPage from './pages/Wallet/WalletPage';
-import {
-  BrowserRouter,
-  Routes, //replaces "Switch" used till v5
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { StoreContextProvider } from './contexts/StoreContext';
-
 function App() {
   return (
     <div className="App">

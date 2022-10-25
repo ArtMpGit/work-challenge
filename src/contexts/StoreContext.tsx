@@ -8,6 +8,7 @@ export interface ContextProps {
     addItems?: (items: Array<Item>) => void;
     addItemToWallet?: (item: Item) => void;
     removeItemFromWallet?: (id: number) => void;
+    retrievePersistedWallet?: (items: Array<Item>) => void;
 }
 
 export const initialState: ContextProps = {
@@ -34,32 +35,42 @@ export const StoreContextProvider = (props: any) => {
         
         if (!updatedWallet.find(({ id }) => item.id === id)) {
             updatedWallet.push(item);
-
-            setTotal(updatedWallet.reduce<number>((acc, item) => {
-                return acc + item.price
-            }, 0));
+            
         }
-
+        setTotal(updatedWallet.reduce<number>((acc, item) => {
+            return acc + item.price
+        }, 0));
+        
+        localStorage.setItem('wallet', JSON.stringify(updatedWallet));
+        
         setWallet(updatedWallet);
     }
-
+    
     const removeItemFromWallet = (itemId: number): void => {
         const updatedWallet = [...wallet];
         const itemToDelete = updatedWallet.find(({ id }) => itemId === id);
-
+        
         if (itemToDelete) {
             const indexToDelete = updatedWallet.findIndex(({ id }) => itemId === id) 
             updatedWallet.splice(indexToDelete, 1);
-
-            setTotal(updatedWallet.reduce<number>((acc, item) => {
-                return acc + item.price
-            }, 0));
+            
         }
+        setTotal(updatedWallet.reduce<number>((acc, item) => {
+            return acc + item.price
+        }, 0));
+        
+        localStorage.setItem('wallet', JSON.stringify(updatedWallet));
         
         setWallet(updatedWallet);
     }
 
-    return <StoreContext.Provider value={{ wallet,items, total, addItemToWallet, removeItemFromWallet, addItems }}>
+    const retrievePersistedWallet = (items: Array<Item>) => {
+        console.log('a');
+        
+        setWallet([...items]);
+    }
+
+    return <StoreContext.Provider value={{ wallet,items, total, addItemToWallet, removeItemFromWallet, addItems, retrievePersistedWallet }}>
           {props.children}
         </StoreContext.Provider>
 };
